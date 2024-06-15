@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:video_player_app/provider/like_provider.dart';
+import 'package:video_player_app/provider/share_provider.dart';
 import 'package:video_player_app/screens/home/home_screen.dart';
 
 void main() {
-  runApp(const VideoApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => ShareProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => LikeProvider(),
+        ),
+      ],
+      child: const VideoApp(),
+    ),
+  );
 }
 
 class VideoApp extends StatelessWidget {

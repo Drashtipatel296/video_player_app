@@ -16,47 +16,61 @@ class HomeScreen extends StatelessWidget {
             Swiper(
               itemBuilder: (BuildContext context, int index) {
                 return ContentScreen(
-                  videoAssetPath: videoAssetPath[index],
+                  video: videoAssetPath[index]['video'],
+                  username: videoAssetPath[index]['username'],
+                  comments: videoAssetPath[index]['comments'],
+                  likes: videoAssetPath[index]['likes'],
+                  shares: videoAssetPath[index]['share'],
                 );
               },
               itemCount: videoAssetPath.length,
               scrollDirection: Axis.vertical,
             ),
-            Column(
+             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 15),
                   child: Row(
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 18,
                         backgroundImage: AssetImage('assets/img/avatar.jpg'),
                       ),
-                      SizedBox(
-                        width: 20,
+                      const SizedBox(
+                        width: 15,
                       ),
-                      Icon(
-                        Icons.search,
-                        color: Colors.white,
-                        size: 25,
+                      Container(
+                        height: 40,
+                        width: 40,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white24,
+                        ),
+                        child: const Icon(
+                          Icons.search,
+                          color: Colors.white,
+                          size: 22,
+                        ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 60),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 60),
                         child: Text(
                           'Spotlight',
                           style: TextStyle(
-                              fontSize: 25,
+                              fontSize: 22,
                               fontWeight: FontWeight.bold,
                               letterSpacing: 0.5),
                         ),
                       ),
-                      Spacer(),
-                      Icon(
+                      const Spacer(),
+                      const Icon(
                         Icons.add_box_outlined,
                         size: 25,
                       ),
-                      SizedBox(width: 10,),
+                      const SizedBox(
+                        width: 10,
+                      ),
                     ],
                   ),
                 ),
@@ -65,14 +79,34 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: Row(
+      bottomNavigationBar: const Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Icon(Icons.location_on_outlined,color: Colors.white,size: 28,),
-          Icon(Icons.chat_bubble_outline,color: Colors.white,size: 28,),
-          Icon(Icons.camera_alt_outlined,color: Colors.white,size: 28,),
-          Icon(Icons.people_outline,color: Colors.white,size: 28,),
-          Icon(Icons.play_arrow,color: Colors.white,size: 28,),
+          Icon(
+            Icons.location_on_outlined,
+            color: Colors.white,
+            size: 28,
+          ),
+          Icon(
+            Icons.chat_bubble_outline,
+            color: Colors.white,
+            size: 28,
+          ),
+          Icon(
+            Icons.camera_alt_outlined,
+            color: Colors.white,
+            size: 28,
+          ),
+          Icon(
+            Icons.people_outline,
+            color: Colors.white,
+            size: 28,
+          ),
+          Icon(
+            Icons.play_arrow,
+            color: Colors.white,
+            size: 28,
+          ),
         ],
       ),
     );

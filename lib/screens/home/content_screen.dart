@@ -4,9 +4,19 @@ import 'package:video_player/video_player.dart';
 import 'options_screen.dart';
 
 class ContentScreen extends StatefulWidget {
-  const ContentScreen({super.key,required this.videoAssetPath});
+  const ContentScreen(
+      {super.key,
+      required this.video,
+      required this.username,
+      required this.comments,
+      required this.likes,
+      required this.shares});
 
-  final String videoAssetPath;
+  final String video;
+  final String username;
+  final int comments;
+  final int likes;
+  final String shares;
 
   @override
   State<ContentScreen> createState() => _ContentScreenState();
@@ -23,12 +33,13 @@ class _ContentScreenState extends State<ContentScreen> {
   }
 
   Future initializePlayer() async {
-    _videoPlayerController = VideoPlayerController.asset(widget.videoAssetPath);
+    _videoPlayerController = VideoPlayerController.asset(widget.video);
     await Future.wait([_videoPlayerController.initialize()]);
     _chewieController = ChewieController(
       videoPlayerController: _videoPlayerController,
       autoPlay: true,
       showControls: false,
+      looping: true,
     );
     setState(() {});
   }
@@ -43,20 +54,26 @@ class _ContentScreenState extends State<ContentScreen> {
   @override
   Widget build(BuildContext context) {
     return Stack(
-        fit: StackFit.expand,
-        children: [
-          _chewieController != null &&
-                  _chewieController!.videoPlayerController.value.isInitialized
-              ? Chewie(
-                  controller: _chewieController!,
-                )
-              : SizedBox(),
-          SizedBox(
-            height: 560,
-          ),
-          infoContainer(),
-        ],
-      );
-
+      fit: StackFit.expand,
+      children: [
+        _chewieController != null &&
+                _chewieController!.videoPlayerController.value.isInitialized
+            ? Chewie(
+                controller: _chewieController!,
+              )
+            : SizedBox(),
+        SizedBox(
+          height: 560,
+        ),
+        infoContainer(
+          context: context,
+          username: widget.username,
+          com: widget.comments,
+          likes: widget.likes,
+          share: widget.shares,
+          video: widget.video,
+        ),
+      ],
+    );
   }
 }
