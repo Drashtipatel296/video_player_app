@@ -21,6 +21,7 @@ class HomeScreen extends StatelessWidget {
                   comments: videoAssetPath[index]['comments'],
                   likes: videoAssetPath[index]['likes'],
                   shares: videoAssetPath[index]['share'],
+                  name: videoAssetPath[index]['name'],
                 );
               },
               itemCount: videoAssetPath.length,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:video_player_app/provider/like_provider.dart';
 import 'package:video_player_app/provider/share_provider.dart';
-import 'package:video_player_app/screens/home/home_screen.dart';
+import 'package:video_player_app/screens/splash_screen.dart';
 
 void main() {
   runApp(
@@ -29,7 +29,7 @@ class VideoApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
       darkTheme: ThemeData.dark(),
-      home: const HomeScreen(),
+      home: const SplashScreen(),
     );
   }
 }

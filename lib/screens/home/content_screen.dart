@@ -10,13 +10,14 @@ class ContentScreen extends StatefulWidget {
       required this.username,
       required this.comments,
       required this.likes,
-      required this.shares});
+      required this.shares, required this.name});
 
   final String video;
   final String username;
   final int comments;
   final int likes;
   final String shares;
+  final String name;
 
   @override
   State<ContentScreen> createState() => _ContentScreenState();
@@ -72,6 +73,7 @@ class _ContentScreenState extends State<ContentScreen> {
           likes: widget.likes,
           share: widget.shares,
           video: widget.video,
+          name: widget.name,
         ),
       ],
     );

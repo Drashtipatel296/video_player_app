@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:video_player_app/provider/share_provider.dart';
-
 import '../../provider/like_provider.dart';
 
 Padding infoContainer({
@@ -11,6 +10,7 @@ Padding infoContainer({
   required int likes,
   required String share,
   required String video,
+  required String name,
 }) {
   return Padding(
     padding: const EdgeInsets.all(10),
@@ -22,35 +22,35 @@ Padding infoContainer({
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 640,
                 ),
                 Row(
                   children: [
-                    CircleAvatar(
+                    const CircleAvatar(
                       backgroundImage: AssetImage('assets/img/dp.jpeg'),
                       radius: 20,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Text(
                       username,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: Colors.white),
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   '#funnyspotlight #memesspotlight #viral\n #spotlight #sharelikecomment',
                   style: TextStyle(color: Colors.white),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Container(
@@ -62,10 +62,10 @@ Padding infoContainer({
                   ),
                   child: Row(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         width: 15,
                       ),
-                      Icon(
+                      const Icon(
                         Icons.multitrack_audio_sharp,
                         size: 18,
                       ),
@@ -75,12 +75,12 @@ Padding infoContainer({
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              '@drashtipatel29',
-                              style: TextStyle(fontSize: 12),
+                              name,
+                              style: const TextStyle(fontSize: 12,color: Colors.white),
                             ),
-                            Text(
+                            const Text(
                               'Sounds',
-                              style: TextStyle(fontSize: 12),
+                              style: TextStyle(fontSize: 12,color: Colors.white),
                             ),
                           ],
                         ),
@@ -92,19 +92,19 @@ Padding infoContainer({
             ),
             Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 500,
                 ),
-                Icon(
+                const Icon(
                   Icons.comment_outlined,
                   color: Colors.white,
-                  size: 33,
+                  size: 30,
                 ),
                 Text(
                   '$com',
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 Consumer<LikeProvider>(
@@ -125,9 +125,9 @@ Padding infoContainer({
                 ),
                 Text(
                   '$likes',
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 Transform(
@@ -137,18 +137,18 @@ Padding infoContainer({
                       Provider.of<ShareProvider>(context, listen: false)
                               .shareReel(video);
                     },
-                    child: Icon(Icons.send,size: 30,
+                    child: const Icon(Icons.send,size: 28,
                           color: Colors.white,),
                   ),
                 ),
                 Text(
                   '$share',
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                Icon(
+                const Icon(
                   Icons.more_horiz,
                   color: Colors.white,
                   size: 33,
