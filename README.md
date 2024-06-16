@@ -145,7 +145,9 @@ class MyApp extends StatelessWidget {
 
 ### Video
 
-https://github.com/Drashtipatel296/video_player_app/assets/143180636/7429fb2c-da5d-4f7c-b744-8dfb336cd5b0
+
+https://github.com/Drashtipatel296/video_player_app/assets/143180636/5a0c00de-0a27-462d-a14e-8c5dc7e7f411
+
 
 
 
